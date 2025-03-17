@@ -1,0 +1,231 @@
+#Nav{
+    background-color: rgba(31,32,48,255);
+    
+}
+.bg-custom {
+    background-color: rgba(31,32,48,1) !important;
+}
+form{
+    margin-right: auto;
+
+}
+
+
+#Input{
+    padding-left: 10px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 15px;
+    width: 400px;
+    outline: none;
+}
+
+#Input::placeholder {
+    color: #aaa;
+}
+
+#Input:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+}
+
+
+/* Card base styles */
+.card {
+    transition: transform 0.3s;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Regular card image size */
+.card-img-top {
+    height: 225px;
+    object-fit: cover;
+}
+
+/* Large card styles (first and last cards) */
+.col-md-8 .card-img-top {
+    height: 300px;
+}
+
+
+/* Card body padding */
+.card-body {
+    padding: 1rem;
+}
+
+/* Title styles */
+.card-title {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Badge styles */
+.badge {
+    padding: 0.5em 1em;
+    font-weight: 500;
+}
+
+/* Button styles */
+.btn-primary {
+    padding: 0.5rem 1.5rem;
+} 
+#gameCarousel .carousel-item img {
+    height: 305px;
+    object-fit: cover;
+}
+
+
+.carousel-indicators {
+    margin-bottom: 0.5rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+/* Customize carousel control buttons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);  /* Dark background for the arrows */
+    border-radius: 50%;
+    padding: 20px;
+}
+
+/* Customize carousel indicators (dots) */
+.carousel-indicators button {
+    background-color: rgba(255, 255, 255, 0.5) !important;  /* Inactive dot color */
+    height: 10px !important;
+    width: 10px !important;
+    border-radius: 50%;
+    margin: 0 4px !important;
+}
+
+.carousel-indicators button.active {
+    background-color: #fff !important;  /* Active dot color */
+} 
+
+/* Responsive carousel styles */
+#gameCarousel .carousel-item img {
+    height: 305px;
+    object-fit: cover;
+}
+
+/* Large screens (1440px and up) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1380px; 
+    }
+
+    #gameCarousel .carousel-item img {
+        height: 400px;  /* Taller images */
+    }
+
+    .col-md-8 .card-img-top {
+        height: 400px;  /* Taller images for large cards */
+    }
+
+    .card-img-top {
+        height: 250px;  /* Taller images for regular cards */
+    }
+
+    /* Larger text for 1440p */
+    .card-title.fs-3 {
+        font-size: 2rem !important;
+    }
+
+    .card-text {
+        font-size: 1.1rem;
+    }
+
+    /* Larger buttons */
+    .btn-lg {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    /* Larger carousel controls */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        padding: 25px;
+        background-size: 24px;
+    }
+
+    /* Larger indicator dots */
+    .carousel-indicators button {
+        height: 12px !important;
+        width: 12px !important;
+        margin: 0 5px !important;
+    }
+
+    /* Section headings */
+    h2.mb-4 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Card padding */
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    /* Badge size */
+    .badge {
+        font-size: 1rem;
+        padding: 0.6em 1.2em;
+    }
+}
+
+/* Mobile adjustments for carousel */
+@media (max-width: 768px) {
+    #gameCarousel .carousel-item img {
+        height: 257px;  /* Smaller height for mobile */
+    }
+
+    /* Make control buttons smaller on mobile */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        /* padding: 12px;   */
+        background-size: 15px; 
+    }
+
+    /* Adjust indicator dots size for mobile */
+    .carousel-indicators button {
+        height: 8px !important;
+        width: 8px !important;
+        margin: 0 3px !important;
+    }
+
+    /* Adjust card title size for mobile */
+    .card-title.fs-3 {
+        font-size: 1.5rem !important; 
+    }
+
+    /* Adjust button size for mobile */
+    .btn-lg {
+        padding: 0.375rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Even smaller screens */
+@media (max-width: 576px) {
+    #gameCarousel .carousel-item img {
+        height: 230px;  
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 15%;  
+    }
+} 
+
