@@ -9,6 +9,28 @@ let point = (score.wins) + (-1 * score.losses) + (score.ties * 0);
 let isAutoPlayin=false;
 let intervalId;
 
+let currentMode = 1;
+const gameModes = {
+  mode1: {
+    images: {
+      rock: 'rock-emoji.png',
+      paper: 'paper-emoji.png',
+      scissor: 'scissor-emoji.png'
+    },
+    audio: './Music/Ketsa - If You Waited.mp3',
+    background: 'bg-custom'
+  },
+  mode2: {
+    images: {
+      rock: 'rock-alt.png',
+      paper: 'paper-alt.png',
+      scissor: 'scissor-alt.png'
+    },
+    audio: './Music/Ketsa - Suntax.mp3',
+    background: 'bg-custom-alt'
+  }
+};
+
 function autoPlay(){
   if(!isAutoPlayin){
     document.querySelector('.auto-play-btn').style.backgroundColor = 'green';
@@ -84,37 +106,69 @@ function playGame(playerChoice){
   document.querySelector('.js-result').
   innerHTML=result;
   document.querySelector('.js-move').
-  innerHTML=`You
-  <img src="${playerChoice}-emoji.png" alt="rock" class="move-icon">
-  <img src="${computerChoice}-emoji.png" alt="paper" class="move-icon">
+  innerHTML=
+  `You
+  <img src="${gameModes[`mode${currentMode}`].images[playerChoice]}" alt="rock" class="move-icon">
+  <img src="${gameModes[`mode${currentMode}`].images[computerChoice]}" alt="paper" class="move-icon">
   Computer`;
   
+  // `You
+  // <img src="${playerChoice}-emoji.png" alt="rock" class="move-icon">
+  // <img src="${computerChoice}-emoji.png" alt="paper" class="move-icon">
+  // Computer`;
+  
 }
-// function keyStroke(event){
-//   if(event.key==='q'){
-//     playGame("rock")
-//     // console.log(event.key)
-// onkeydown="keyStroke(event);" Add this into html elements rock paper scissor.
-//   }else if(event.key==='w'){
-//     playGame("paper")
-//     // console.log(event.key)
-//   }else if(event.key==="e"){
-//     playGame('scissor')
-//     // console.log(event.key)
-//   }
-// }
 
-document.body.addEventListener('keydown',(event)=>{
-  if(event.key==='q'){
-    playGame('rock')
+
+// document.body.addEventListener('keydown',(event)=>{
+//   if(event.key==='q'){
+//     playGame('rock')
+//   }
+//   else if(event.key==='w'){
+//     playGame('paper')
+//   }
+//   else if(event.key==='e'){
+//     playGame('scissor')
+//   }
+// });
+
+document.addEventListener('keydown', (event) => {
+  let button;
+  if (event.key === 'q') {
+    button = document.querySelector('.move-btn:nth-child(1)');
+    playGame('rock');
+  } else if (event.key === 'w') {
+    button = document.querySelector('.move-btn:nth-child(2)');
+    playGame('paper');
+  } else if (event.key === 'e') {
+    button = document.querySelector('.move-btn:nth-child(3)');
+    playGame('scissor');
   }
-  else if(event.key==='w'){
-    playGame('paper')
-  }
-  else if(event.key==='e'){
-    playGame('scissor')
+
+  if (button && currentMode === 2) {
+    addKeyPressEffect(button);
   }
 });
+
+// Add the effect when clicking the buttons
+document.querySelectorAll('.move-btn').forEach((button, index) => {
+  button.addEventListener('click', () => {
+    if (currentMode === 2) {
+      addKeyPressEffect(button);
+    }
+    const moves = ['rock', 'paper', 'scissor'];
+    playGame(moves[index]);
+  });
+});
+
+// Function to add the keypress effect
+function addKeyPressEffect(button) {
+  button.classList.add('key-press-active');
+  button.addEventListener('animationend', () => {
+    button.classList.remove('key-press-active');
+  }, { once: true });
+}
+
 
 function updateScore(){
   document.querySelector('.js-score')
@@ -157,6 +211,16 @@ function dropD() {
       btn.style.display = (btn.style.display === 'none') ? 'inline-block' : 'none';
   });
 }
+
+
+
+function dropI(){
+  let imgEl=document.querySelectorAll('.idown');
+  imgEl.forEach(btn=>{
+    btn.style.display=(btn.style.display==='inline-block')?'none':'inline-block';
+  })
+
+}
 //Full screen
 function fullS(divId){
   let fullScreen=document.getElementById(divId);
@@ -174,12 +238,19 @@ function fullS(divId){
 }
 
 // Sound effects
+let isSoundOn=true;
 const sound = document.getElementById("gameSound"); 
 
-let isSoundOn=true;
-
 function initializeAudio() {
+  
   try {
+    const defaultVolume=10;
+    sound.volume=defaultVolume/100;
+
+    const volumeBar=document.querySelector('.volume-bar');
+    if(volumeBar){
+      volumeBar.value=defaultVolume;
+    }
     sound.play().catch(error => {
       console.log('Auto-play was prevented');
       isSoundOn = false;
@@ -190,6 +261,9 @@ function initializeAudio() {
     console.log('Audio playback error:', error);
   }
 }
+
+
+
 
 function Sound(){
   SoundOnico=document.getElementById('sOn');
@@ -228,3 +302,47 @@ document.querySelector('.volume-bar').addEventListener('input', function(e) {
 document.querySelector('.volume-control').addEventListener('click', function(e) {
   e.stopPropagation(); 
 });
+
+
+document.getElementById('btnone').addEventListener('click', () => switchMode(1));
+document.getElementById('btntwo').addEventListener('click', () => switchMode(2));
+document.getElementById('btnthree').addEventListener('click', () => switchMode(3));
+
+function switchMode(mode) {
+  currentMode = mode;
+  const mainElement = document.getElementById('Main');
+  const modeInputs = document.getElementById('modeInputs');
+  const moveButtons = document.querySelectorAll('.move-btn img');
+  
+  const isFullScreen=document.fullscreenElement!==null;
+  // Reset all modes first
+  mainElement.className = 'bg-custom';
+  modeInputs.classList.add('d-none');
+  
+  if (mode === 2) {
+  
+    mainElement.className = gameModes.mode2.background;
+    moveButtons.forEach(btn => {
+      const moveType = btn.src.split('/').pop().split('-')[0];
+      btn.src = gameModes.mode2.images[moveType];
+      btn.className = 'move-icon mode2-image';
+      btn.closest('.move-btn').classList.remove('mode1-btn');
+      btn.closest('.move-btn').classList.add('mode2-btn');
+    });
+    sound.src = gameModes.mode2.audio;
+    sound.play();
+  } else {
+    moveButtons.forEach(btn => {
+      const moveType = btn.src.split('/').pop().split('-')[0];
+      btn.src = gameModes.mode1.images[moveType];
+      btn.className = 'move-icon mode1-image';
+      btn.closest('.move-btn').classList.remove('mode2-btn');
+      btn.closest('.move-btn').classList.add('mode1-btn');
+    });
+    sound.src = gameModes.mode1.audio;
+    sound.play();
+  }
+  if(isFullScreen){
+    mainElement.classList.add('fullscreen-active');
+  }
+}
