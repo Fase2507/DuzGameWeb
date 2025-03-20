@@ -303,7 +303,7 @@ main{
 
 @media screen and (max-width: 768px) {
   main {
-    width: 95%;
+    width: 100%;
     padding: 15px;
   }
   
@@ -338,7 +338,6 @@ main{
   main {
     width: 100%;
     padding: 10px;
-    margin-top: 10px;
   }
   
   .title {
@@ -443,7 +442,6 @@ main{
     display: none;
   }
   main{
-    top: 20%;
     padding-top: 40px;
   }
   .fullscreen-active {
@@ -524,9 +522,7 @@ main{
 }
 
 @media (max-width: 768px) {
-  #Main {
-    margin-top: 6rem !important;
-  }
+  
   .fullscreen-active {
     width: 100vw;
     height: 100vh;
@@ -536,9 +532,7 @@ main{
   }
 }
 @media (max-width: 480px) {
-  #Main {
-    margin-top: 6rem !important;
-  }
+ 
   .fullscreen-active {
     width: 100vw;
     height: 100vh;
