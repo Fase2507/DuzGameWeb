@@ -337,18 +337,39 @@ main{
 @media screen and (max-width: 480px) {
   main {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
   }
   
   .title {
-    font-size: 20px;
+    left: 10%;
+    position: absolute;
+    top: 40px;
+    display: none;
   }
-  
-  .move-btn {
+  .move-btn.mode1-btn{
+    margin-top: 50px;
+    width: 80px;
+    height: 80px;
+    padding: 12px 12px;
+    margin-right: 6px;
+  }
+  .move-btn.mode1-btn img{
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .move-btn.mode2-btn {
+    margin-top: 50px;
+    width: 80px;
+    height: 80px;
+    padding: 12px 12px;
+    margin-right: 10px;
+  }
+
+  .move-btn.mode2-btn img{
     width: 60px;
     height: 60px;
-    padding: 10px;
-    margin-right: 8px;
   }
   
   .move-icon {
@@ -357,7 +378,7 @@ main{
   
   .result {
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 30px;
   }
   
   .score {
@@ -387,9 +408,15 @@ main{
   }
   
   .fullscreen-active .playground {
-    transform: scale(1.2);
+    transform: scale(1.1);
     margin-top: 12vh;
+
   }
+
+  .fullscreen-active .dropDown button{
+    padding: 6px 12px;
+  }
+
   .fullscreen-active .move-btn.mode1-btn,
   .fullscreen-active .move-btn.mode2-btn {
     width: 80px;
@@ -408,35 +435,17 @@ main{
     padding: 8px 12px;
     min-width: 90px;
   }
+  .fullscreen-active .volume-control {
+    top: auto;
+    bottom: -95px;
+    left: 10px;
+    z-index: 1000;
+  }
 }
 
-/* Adjust volume control for mobile */
-@media screen and (max-width: 768px) {
-  .volume-control {
-    width: 50px;
-    margin-top: 83px;
-  }
-  
-  .volume-bar {
-    width: 80px;
-    height: 4px;
-  }
-  
-  .volume-bar::-webkit-slider-thumb {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .volume-bar::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-  }
-
-  
-}
 
 /* Add mobile fullscreen adjustments */
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
 
   .fullscreen-active .title{
     display: none;
@@ -446,7 +455,7 @@ main{
   }
   .fullscreen-active {
     gap: 5px;
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .fullscreen-active
   .move-btn {
@@ -514,32 +523,36 @@ main{
   .fullscreen-active .auto-play-btn {
     font-size: 12px;
     padding: 8px 12px;
-    margin: 0;
     min-width: 90px;
   }
+  
+  
+
+
+
+/* Adjust volume control for mobile */
+@media screen and (max-width: 768px) {
+  .volume-control {
+    width: 50px;
+    margin-top: 83px;
+  }
+  
+  .volume-bar {
+    width: 80px;
+    height: 4px;
+  }
+  
+  .volume-bar::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .volume-bar::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+  }
 
   
-}
-
-@media (max-width: 768px) {
-  
-  .fullscreen-active {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-}
-@media (max-width: 480px) {
- 
-  .fullscreen-active {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
 }
 
 .bg-custom-alt {
@@ -595,29 +608,6 @@ main{
 }
 
 
-.input-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.choice-input {
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  width: 200px;
-  transition: background-color 0.3s ease;
-}
-
-.decision-mode {
-  margin-top: 20px;
-}
-
-/* Add transition for smooth color changes */
-.choice-input {
-  transition: background-color 0.5s ease;
-}
 
 .mode2-image {
   width: 80px;
