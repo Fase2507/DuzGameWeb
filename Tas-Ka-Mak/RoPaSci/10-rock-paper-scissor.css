@@ -2,6 +2,29 @@
 .bg-custom {
   background-color: rgba(31,32,48,1) !important;
 }
+.bg-custom-alt {
+  background: linear-gradient(135deg,     #ffd700 0%,    #e7c60b 10%,    #b89f14 17%,    #d4c414 25%,    #dab673 35%,    #9c6f0e 50%,    #978d57 75%,    #d8ac1b 100%);
+  background-size: 400% 400%;
+  animation: desertGradient 20s ease infinite;
+}
+.bg-custom-ocean {
+  background: linear-gradient(135deg,  
+    #87CEEB 0%,    /* Light Sky Blue */
+    #70B7E6 10%,   /* Soft Blue */
+    #5FA8D3 17%,   /* Ocean Blue */
+    #4682B4 25%,   /* Steel Blue */
+    #3B7BA3 35%,   /* Deep Sea Blue */
+    #2B6C92 50%,   /* Marine Blue */
+    #1F5A7A 75%,   /* Darker Ocean */
+    #0F4C75 100%   /* Deep Blue */
+);
+
+  /* background: linear-gradient(135deg,     rgba(0, 102, 204, 0.1) 0%,rgba(0, 191, 255, 0.4) 25%,rgba(0, 255, 255, 0.2) 50%,rgba(0, 128, 128, 0.2) 75%,skyblue 100%); */
+  background-size: 400% 400%;
+  animation: oceanGradient 20s ease infinite;
+}
+
+
 form{
   margin-right: auto;
 
@@ -158,17 +181,10 @@ main{
 
 
 .fullscreen-active.bg-custom-alt {
-  background: linear-gradient(135deg, 
-    #ffd700 0%,
-    #e7c60b 10%,
-    #b89f14 17%,
-    #d4c414 25%,
-    #dab673 35%,
-    #9c6f0e 50%,
-    #978d57 75%,
-    #d8ac1b 100%);
+  background: linear-gradient(135deg,     #ffd700 0%,    #e7c60b 10%,    #b89f14 17%,    #d4c414 25%,    #dab673 35%,    #9c6f0e 50%,    #978d57 75%,    #d8ac1b 100%);
   background-size: 400% 400%;
   animation: desertGradient 20s ease infinite;
+  -webkit-animation: desertGradient 20s ease infinite;
 }
 
 .fullscreen-active .playground {
@@ -312,6 +328,19 @@ main{
     top: 40px;
     display: none;
   }
+  .move-btn{
+    margin-top: 50px;
+    width: 80px;
+    height: 80px;
+    padding: 12px 12px;
+    margin-right: 6px;
+  }
+  .move-btn img{
+    width: 50px;
+    height: 50px;
+  }
+
+  
   .move-btn.mode1-btn{
     margin-top: 50px;
     width: 80px;
@@ -324,7 +353,8 @@ main{
     height: 50px;
   }
 
-
+  
+  
   .move-btn.mode2-btn {
     margin-top: 50px;
     width: 80px;
@@ -332,12 +362,24 @@ main{
     padding: 12px 12px;
     margin-right: 10px;
   }
-
+  
   .move-btn.mode2-btn img{
     width: 60px;
     height: 60px;
   }
-  
+
+  .move-btn.move-btn.mode3-btn{
+    margin-top: 50px;
+    width: 80px;
+    height: 80px;
+    padding: 12px 12px;
+    margin-right: 10px;
+  }
+  .move-btn.mode3-btn img{
+    width: 60px;
+    height: 60px;
+  }
+
   .move-icon {
     height: 25px;
   }
@@ -384,7 +426,8 @@ main{
   }
 
   .fullscreen-active .move-btn.mode1-btn,
-  .fullscreen-active .move-btn.mode2-btn {
+  .fullscreen-active .move-btn.mode2-btn,
+  .fullscreen-active .move-btn.mode3-btn {
     width: 80px;
     height: 80px;
     padding: 10px;
@@ -446,17 +489,8 @@ main{
   
   
 
-.bg-custom-alt {
-  background: linear-gradient(135deg, 
-    #ffd700 0%,    /* Golden */
-    #686326 25%,   /* White smoke */
-    #9c6f0e 50%,   /* Gray */
-    #4e4003 75%,   
-    #ffd700 100%); 
-  background-size: 400% 400%;
-  animation: desertGradient 20s ease infinite; 
-}
 
+  
 @keyframes desertGradient {
   0% {
     background-position: 0% 50%;
@@ -469,6 +503,18 @@ main{
   }
 }
 
+
+@keyframes oceanGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 75% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 
 @keyframes keyPressHalo {
@@ -492,24 +538,61 @@ main{
   }
 }
 
+@keyframes keyPressWavo {
+  0% {
+    background-color: rgba(0, 102, 204, 0.1); /* Deep ocean blue */
+    box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.4), /* Sky blue */
+                0 0 0 10px rgba(0, 255, 255, 0.2), /* Cyan */
+                0 0 0 20px rgba(0, 128, 128, 0.1); /* Teal */
+  }
+  50% {
+    background-color: rgba(0, 102, 204, 0.3);
+    box-shadow: 0 0 30px 10px rgba(0, 191, 255, 0.6),
+                0 0 50px 20px rgba(0, 255, 255, 0.4),
+                0 0 70px 30px rgba(0, 128, 128, 0.2);
+  }
+  100% {
+    background-color: rgba(0, 102, 204, 0);
+    box-shadow: 0 0 0 0 rgba(0, 191, 255, 0),
+                0 0 0 0 rgba(0, 255, 255, 0),
+                0 0 0 0 rgba(0, 128, 128, 0);
+  }
+}
+
+
 .move-btn.mode2-btn.key-press-active {
   animation: keyPressHalo 0.8s ease-out;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
-
+/* MODE3 */
+.move-btn.mode3-btn.key-press-active {
+  animation: keyPressWavo 0.6s ease-out;
+  border-radius: 20%;
+  transition: all 0.1s ease-in-out;
+}
 
 
 .mode2-image {
   width: 80px;
-  /*oranysizeyouwant*/height: 80px;
+  height: 80px;
   border-radius: 0;
-  /*roundedcorners*/transition: all 0.3s ease;
+  transition: all 0.3s ease;
   
 }
-
+.mode3-image{
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  transition: all 0.3s ease-in-out;
+}
 
 /* AAAA */
+.move-btn.mode3-btn{
+  border:none;
+  background-color: transparent;
+}
+
 .move-btn.mode2-btn {
   border: none;
   background-color: transparent;
