@@ -1,8 +1,4 @@
-/*  */
-#Nav{
-  background-color: rgba(31,32,48,255);
-  
-}
+
 .bg-custom {
   background-color: rgba(31,32,48,1) !important;
 }
@@ -36,22 +32,17 @@ form{
 /* //////////// */
 main{
   box-sizing: border-box;
-  border-radius: 3%;
   position: relative;
   margin-left: auto;
   margin-right: auto;
   /* text-align: center; */
-  margin-top:80px;
   padding: 20px;
   width: 60%;
   height: 80%;
   background-color: rgb(25,25,25);
   color:white;
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-border-radius: 3%;
-  -moz-border-radius: 3%;
-  -ms-border-radius: 3%;
-  -o-border-radius: 3%;
+  
 }
 
     
@@ -169,10 +160,13 @@ main{
 .fullscreen-active.bg-custom-alt {
   background: linear-gradient(135deg, 
     #ffd700 0%,
-    #686326 25%,
+    #e7c60b 10%,
+    #b89f14 17%,
+    #d4c414 25%,
+    #dab673 35%,
     #9c6f0e 50%,
-    #4e4003 75%,
-    #ffd700 100%);
+    #978d57 75%,
+    #d8ac1b 100%);
   background-size: 400% 400%;
   animation: desertGradient 20s ease infinite;
 }

@@ -306,7 +306,7 @@ document.querySelector('.volume-control').addEventListener('click', function(e) 
 
 document.getElementById('btnone').addEventListener('click', () => switchMode(1));
 document.getElementById('btntwo').addEventListener('click', () => switchMode(2));
-document.getElementById('btnthree').addEventListener('click', () => switchMode(3));
+// document.getElementById('btnthree').addEventListener('click', () => switchMode(3));
 
 function switchMode(mode) {
   currentMode = mode;
