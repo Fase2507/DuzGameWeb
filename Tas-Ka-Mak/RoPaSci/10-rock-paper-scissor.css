@@ -172,9 +172,9 @@ main{
 }
 
 .fullscreen-active .playground {
-  transform: scale(1.4);
-  margin-top: 5vh;
+  transform: scale(1.2);
   margin-bottom: 5vh;
+  
 }
 
 .fullscreen-active .move-btn.mode1-btn {
@@ -300,40 +300,6 @@ main{
 
 /* Add responsive design rules */
 
-
-@media screen and (max-width: 768px) {
-  main {
-    width: 100%;
-    padding: 15px;
-  }
-  
-  .title {
-    font-size: 24px;
-  }
-  
-  .move-btn {
-    width: 80px;
-    height: 80px;
-    padding: 15px;
-    margin-right: 10px;
-  }
-  
-  .move-icon {
-    height: 35px;
-  }
-  
-  .result {
-    font-size: 18px;
-    margin-top: 30px;
-  }
-  
-  .reset-score-btn,
-  .auto-play-btn {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
-}
-
 @media screen and (max-width: 480px) {
   main {
     width: 100%;
@@ -443,71 +409,23 @@ main{
   }
 }
 
-
-/* Add mobile fullscreen adjustments */
-/* @media screen and (max-width: 480px) {
-
-  .fullscreen-active .title{
+@media screen and (max-width:768px){
+  .title{
     display: none;
   }
   main{
-    padding-top: 40px;
+    width: 100%;
+    height: 100%;
   }
-  .fullscreen-active {
-    gap: 5px;
-    font-size: 1rem;
+
+  .move-btn.mode1-btn img{
+    width: 60px;
+    height: 60px;
   }
-  .fullscreen-active
-  .move-btn {
-    width: 80px;
-    height: 80px;
-    padding: 10px;
-    margin-right: 8px;
-  }
-  .fullscreen-active
-  .move-icon {
-    height: 45px;
-  }
-  .fullscreen-active .playground {
-    transform: scale(1);
-    margin-top: 40px;
-    
 }
 
-  .fullscreen-active .dropDown {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    margin-left: 0;
-    z-index: 1000;
-    transform: scale(0.75);
-    -webkit-transform: scale(0.75);
-    -moz-transform: scale(0.75);
-    -ms-transform: scale(0.75);
-    -o-transform: scale(0.75);
-}
 
-  .fullscreen-active .volume-control {
-    top: auto;
-    bottom: -90px;
-    left: 30px;
-    z-index: 1000;
-  }
 
-  .fullscreen-active button {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-
-  .fullscreen-active .title {
-    margin-bottom: 5%;
-    font-size: 24px;
-  }
-
-  .fullscreen-active .result {
-    font-size: 18px;
-    margin-top: 15px;
-  }
 
   /* Adjust control buttons in fullscreen mobile view */
   .fullscreen-active .score {
@@ -527,33 +445,6 @@ main{
   }
   
   
-
-
-
-/* Adjust volume control for mobile */
-@media screen and (max-width: 768px) {
-  .volume-control {
-    width: 50px;
-    margin-top: 83px;
-  }
-  
-  .volume-bar {
-    width: 80px;
-    height: 4px;
-  }
-  
-  .volume-bar::-webkit-slider-thumb {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .volume-bar::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-  }
-
-  
-}
 
 .bg-custom-alt {
   background: linear-gradient(135deg, 
