@@ -18,12 +18,25 @@
     #1F5A7A 75%,   /* Darker Ocean */
     #0F4C75 100%   /* Deep Blue */
 );
-
   /* background: linear-gradient(135deg,     rgba(0, 102, 204, 0.1) 0%,rgba(0, 191, 255, 0.4) 25%,rgba(0, 255, 255, 0.2) 50%,rgba(0, 128, 128, 0.2) 75%,skyblue 100%); */
   background-size: 400% 400%;
   animation: oceanGradient 20s ease infinite;
 }
+.bg-custom-forest {
+  background: linear-gradient(135deg,
+    #228B22 0%,    /* Forest Green */
+    #32CD32 10%,   /* Lime Green */
+    #008000 17%,   /* Green */
+    #2E8B57 25%,   /* Sea Green */
+    #3CB371 35%,   /* Medium Sea Green */
+    #6B8E23 50%,   /* Olive Drab */
+    #556B2F 75%,   /* Dark Olive Green */
+    #006400 100%   /* Dark Green */
+);
+background-size: 400% 400%;
+animation: forestGradient 20s ease infinite;
 
+}
 
 form{
   margin-right: auto;
@@ -205,6 +218,20 @@ main{
   width: 120px;
   height: 120px;
 }
+
+.fullscreen-active .move-btn.mode3-btn {
+  border: none;
+  width: 120px;
+  height: 120px;
+}
+
+.fullscreen-active .move-btn.mode4-btn {
+  border: none;
+  width: 120px;
+  height: 120px;
+}
+
+
 .fullscreen-active .score {
   position: fixed;
   bottom: 5vh;
@@ -368,7 +395,7 @@ main{
     height: 60px;
   }
 
-  .move-btn.move-btn.mode3-btn{
+  .move-btn.mode3-btn{
     margin-top: 50px;
     width: 80px;
     height: 80px;
@@ -376,6 +403,18 @@ main{
     margin-right: 10px;
   }
   .move-btn.mode3-btn img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .move-btn.mode4-btn{
+    margin-top: 50px;
+    width: 80px;
+    height: 80px;
+    padding: 12px 12px;
+    margin-right: 10px;
+  }
+  .move-btn.mode4-btn img{
     width: 60px;
     height: 60px;
   }
@@ -427,7 +466,8 @@ main{
 
   .fullscreen-active .move-btn.mode1-btn,
   .fullscreen-active .move-btn.mode2-btn,
-  .fullscreen-active .move-btn.mode3-btn {
+  .fullscreen-active .move-btn.mode3-btn,
+  .fullscreen-active .move-btn.mode4-btn {
     width: 80px;
     height: 80px;
     padding: 10px;
@@ -516,6 +556,17 @@ main{
   }
 }
 
+@keyframes forestGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 75% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 @keyframes keyPressHalo {
   0% {
@@ -559,6 +610,26 @@ main{
   }
 }
 
+@keyframes keyPressForo {
+  0% {
+    background-color: rgba(25, 50, 30, 0.1); /* Dark jungle green */
+    box-shadow: 0 0 0 0 rgba(10, 80, 40, 0.4), /* Darker jungle green */
+                0 0 0 10px rgba(30, 70, 40, 0.2), /* Medium jungle green */
+                0 0 0 20px rgba(10, 40, 20, 0.1); /* Darkest jungle green */
+  }
+  50% {
+    background-color: rgba(25, 50, 30, 0.3);
+    box-shadow: 0 0 30px 10px rgba(10, 80, 40, 0.6),
+                0 0 50px 20px rgba(30, 70, 40, 0.4),
+                0 0 70px 30px rgba(10, 40, 20, 0.2);
+  }
+  100% {
+    background-color: rgba(25, 50, 30, 0);
+    box-shadow: 0 0 0 0 rgba(10, 80, 40, 0),
+                0 0 0 0 rgba(30, 70, 40, 0),
+                0 0 0 0 rgba(10, 40, 20, 0);
+  }
+}
 
 .move-btn.mode2-btn.key-press-active {
   animation: keyPressHalo 0.8s ease-out;
@@ -572,6 +643,11 @@ main{
   transition: all 0.1s ease-in-out;
 }
 
+.move-btn.mode4-btn.key-press-active {
+  animation: keyPressForo 0.6s ease-out;
+  border-radius: 20%;
+  transition: all 0.1s ease-in-out;
+}
 
 .mode2-image {
   width: 80px;
@@ -586,8 +662,19 @@ main{
   border-radius: 0;
   transition: all 0.3s ease-in-out;
 }
+.mode4-image{
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  transition: all 0.3s ease-in-out;
+}
 
 /* AAAA */
+.move-btn.mode4-btn{
+  border:none;
+  background-color: transparent;
+}
+
 .move-btn.mode3-btn{
   border:none;
   background-color: transparent;
