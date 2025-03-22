@@ -13,7 +13,7 @@
 <body>
       
 
-  <main id="Main" class=" bg-custom"> 
+  <main id="Main" class="bg-custom"> 
     
     <h1 class="title justify-content-center mt-4 mb-3">Rock Paper Scissor</h1>
     <div class="dropDown">
@@ -49,14 +49,14 @@
     <div class="playground mt-5">
       <button onclick="playGame('rock');" class="move-btn" >
 
-        <img src="rock-emoji.png" alt="rock" class="move-icon">
+        <img src="./Images/rock-emoji.png" alt="rock" class="move-icon">
       </button>
       <button onclick="playGame('paper');" class="move-btn">
-        <img src="paper-emoji.png" alt="paper" class="move-icon">
+        <img src="./Images/paper-emoji.png" alt="paper" class="move-icon">
       </button>
      
       <button onclick="playGame('scissor');" class="move-btn">
-        <img src="scissor-emoji.png" alt="scissor" class="move-icon">
+        <img src="./Images/scissor-emoji.png" alt="scissor" class="move-icon">
       </button>
       <div class="resBoard">
         <p class="js-result result">
@@ -65,6 +65,12 @@
 
       </div> 
     </div>
+    <!--Decision-->
+    <!-- <label style="display: block;right: 20px; position: absolute; top: 50%; " for="right">Right</label>
+    <input style="display: block;right: 10px; position: absolute;" title="right" type="text" name="right" id="right">
+    <label for="left">Left</label>
+    <input style="display: block; left: 0%;" title="left" type="text" name="left" id="left"> -->
+
     <!-- Score -->
     <p class="js-score score"></p>
     <button onclick="reset()" class="reset-score-btn">

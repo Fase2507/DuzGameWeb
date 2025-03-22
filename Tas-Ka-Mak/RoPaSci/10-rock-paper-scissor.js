@@ -13,36 +13,36 @@ let currentMode = 1;
 const gameModes = {
   mode1: {
     images: {
-      rock: 'rock-emoji.png',
-      paper: 'paper-emoji.png',
-      scissor: 'scissor-emoji.png'
+      rock: './Images/rock-emoji.png',
+      paper: './Images/paper-emoji.png',
+      scissor: './Images/scissor-emoji.png'
     },
     audio: './Music/Ketsa - If You Waited.mp3',
     background: 'bg-custom'
   },
   mode2: {
     images: {
-      rock: 'rock-alt.png',
-      paper: 'paper-alt.png',
-      scissor: 'scissor-alt.png'
+      rock: './Images/rock-alt.png',
+      paper: './Images/paper-alt.png',
+      scissor: './Images/scissor-alt.png'
     },
     audio: './Music/Ketsa - Suntax.mp3',
     background: 'bg-custom-alt'
   },
   mode3: {
     images:{
-      rock:'rock-olt.png',
-      paper:'paper-olt.png',
-      scissor:'scissor-olt.png'
+      rock:'./Images/rock-olt.png',
+      paper:'./Images/paper-olt.png',
+      scissor:'./Images/scissor-olt.png'
     },
     audio:'./Music/Ketsa - Mist.mp3',
     background:'bg-custom-ocean'
   },
   mode4: {
     images:{
-      rock:'rock-frst.png',
-      paper:'paper-frst.png',
-      scissor:'scissor-frst.png'
+      rock:'./Images/rock-frst.png',
+      paper:'./Images/paper-frst.png',
+      scissor:'./Images/scissor-frst.png'
     },
     audio:'./Music/Joint C Beat Laboratory - Blooming Poison.mp3',
     background:'bg-custom-forest'
@@ -129,28 +129,9 @@ function playGame(playerChoice){
   <img src="${gameModes[`mode${currentMode}`].images[playerChoice]}" alt="rock" class="move-icon">
   <img src="${gameModes[`mode${currentMode}`].images[computerChoice]}" alt="paper" class="move-icon">
   Computer`;
-  
-  // `You
-  // <img src="${playerChoice}-emoji.png" alt="rock" class="move-icon">
-  // <img src="${computerChoice}-emoji.png" alt="paper" class="move-icon">
-  // Computer`;
-  
-}
-
-
-// document.body.addEventListener('keydown',(event)=>{
-//   if(event.key==='q'){
-//     playGame('rock')
-//   }
-//   else if(event.key==='w'){
-//     playGame('paper')
-//   }
-//   else if(event.key==='e'){
-//     playGame('scissor')
-//   }
-// });
-
+  }
 document.addEventListener('keydown', (event) => {
+  // console.log(event.key)
   let button;
   if (event.key === 'q') {
     button = document.querySelector('.move-btn:nth-child(1)');
@@ -200,6 +181,8 @@ function updateScore(){
 
 }
 
+
+
 function pickComputerChoice(){
   let computerChoice='';
   const randomNumber=Math.random();
@@ -246,7 +229,7 @@ function dropI(){
 }
 //Full screen
 function fullS(divId){
-  let fullScreen=document.getElementById(divId);
+  const fullScreen=document.getElementById(divId);
   if(!document.fullscreenElement){
     fullScreen.requestFullscreen().then(()=>{
       fullScreen.classList.add('fullscreen-active');
@@ -263,13 +246,14 @@ function fullS(divId){
 // Sound effects
 let isSoundOn=true;
 const sound = document.getElementById("gameSound"); 
-
+  let SoundOnico=document.getElementById('sOn');
+  let SoundOffico=document.getElementById('sOff');
 function initializeAudio() {
   
   try {
-    const defaultVolume=10;
+    const defaultVolume=30;
     sound.volume=defaultVolume/100;
-
+    
     const volumeBar=document.querySelector('.volume-bar');
     if(volumeBar){
       volumeBar.value=defaultVolume;
@@ -285,6 +269,16 @@ function initializeAudio() {
   }
 }
 
+
+
+document.querySelector('.volume-bar').addEventListener('input', function(e) {
+  e.stopPropagation(); 
+  sound.volume = e.target.value / 100;
+});
+
+document.querySelector('.volume-control').addEventListener('click', function(e) {
+  e.stopPropagation(); 
+});
 
 
 
@@ -305,7 +299,6 @@ function Sound(){
     isSoundOn=true;
   }
 }
-document.addEventListener('DOMContentLoaded', initializeAudio);
 
 
 setTimeout(()=>{
@@ -317,14 +310,6 @@ document.querySelectorAll('button').forEach(button => {
   });
 });
 
-document.querySelector('.volume-bar').addEventListener('input', function(e) {
-  e.stopPropagation(); 
-  sound.volume = e.target.value / 100;
-});
-
-document.querySelector('.volume-control').addEventListener('click', function(e) {
-  e.stopPropagation(); 
-});
 
 
 document.getElementById('btnone').addEventListener('click', () => switchMode(1));
@@ -344,7 +329,7 @@ function switchMode(mode) {
   modeInputs.classList.add('d-none');
   
   if (mode === 2) {
-  
+    
     mainElement.className = gameModes.mode2.background;
     moveButtons.forEach(btn => {
       const moveType = btn.src.split('/').pop().split('-')[0];
@@ -358,7 +343,7 @@ function switchMode(mode) {
     sound.src = gameModes.mode2.audio;
     sound.play();
   } 
-
+  
   else if(mode===3){
     mainElement.className=gameModes.mode3.background;
     moveButtons.forEach(btn=>{
@@ -375,7 +360,7 @@ function switchMode(mode) {
     sound.src=gameModes.mode3.audio;
     sound.play();
   }
-
+  
   else if(mode===4){
     mainElement.className=gameModes.mode4.background;
     moveButtons.forEach(btn=>{
@@ -409,4 +394,7 @@ function switchMode(mode) {
   if(isFullScreen){
     mainElement.classList.add('fullscreen-active');
   }
+  
 }
+
+
