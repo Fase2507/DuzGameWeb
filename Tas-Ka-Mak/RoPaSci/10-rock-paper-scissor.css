@@ -115,6 +115,7 @@ main{
 
 
 .playground{
+  margin-top: 5rem;
   display:block;
   left: auto;
   right: auto;
@@ -137,7 +138,6 @@ main{
   width: 120px;
   height: 120px;
   cursor:pointer;
-  
 }
 .result{
   font-size: 20px;
@@ -330,6 +330,7 @@ main{
 /* Add this new style for the button container */
 #btn4 {
   position: relative;
+  z-index: 5;
 }
 
 #point{
@@ -343,160 +344,94 @@ main{
 
 
 /* Add responsive design rules */
-
-@media screen and (max-width: 480px) {
-  main {
-    width: 100%;
-    /* height: 100%; */
-    padding: 20px;
-  }
-
-  .title {
-    left: 10%;
-    position: absolute;
-    top: 40px;
+@media screen and (max-width:480px) {
+  #btn2{
+    background-color: #006400;
+    display: none !important;
+  } 
+  .title{
     display: none;
-  }
-  .move-btn{
-    margin-top: 60px;
-    width: 80px;
-    height: 80px;
-    padding: 12px 12px;
-    margin-right: 6px;
-  }
-  .move-btn img{
-    width: 50px;
-    height: 50px;
-  }
-
-  
-  .move-btn.mode1-btn{
-    margin-top: 50px;
-    width: 80px;
-    height: 80px;
-    padding: 12px 12px;
-    margin-right: 6px;
-  }
-  .move-btn.mode1-btn img{
-    width: 50px;
-    height: 50px;
+   }
+   body{
+    width: 100vw;
+    height: 100vh;
+   }
+  main{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
   }
 
-  
-  
-  .move-btn.mode2-btn {
-    margin-top: 50px;
-    width: 80px;
-    height: 80px;
-    padding: 12px 12px;
-    margin-right: 10px;
-  }
-  
-  .move-btn.mode2-btn img{
-    width: 60px;
-    height: 60px;
-  }
-
-  .move-btn.mode3-btn{
-    margin-top: 50px;
-    width: 80px;
-    height: 80px;
-    padding: 12px 12px;
-    margin-right: 10px;
-  }
-  .move-btn.mode3-btn img{
-    width: 60px;
-    height: 60px;
-  }
-
-  .move-btn.mode4-btn{
-    margin-top: 50px;
-    width: 80px;
-    height: 80px;
-    padding: 12px 12px;
-    margin-right: 10px;
-  }
-  .move-btn.mode4-btn img{
-    width: 60px;
-    height: 60px;
-  }
-
-  .move-icon {
-    height: 25px;
-  }
-  
-  .result {
-    font-size: 16px;
-    margin-top: 30px;
-  }
-  
-  .score {
-    margin-top: 30px;
-  }
-  
   .dropDown {
     margin-left: 85%;
   }
 
-  /* Add styles for control buttons in mobile view */
-  .reset-score-btn,
-  .auto-play-btn {
-    display: inline-block;
-    margin: 5px;
-    font-size: 12px;
-    padding: 6px 10px;
-    min-width: 80px;
+  .dropDown button{
+    height: 30px;
+    width: 30px;
+  }
+ 
+  .playground{
+    align-items: center;
+    transform: scale(0.90);
+}
+
+  .move-btn {
+    background-color: transparent;
+    border: none;
+    margin-right: 20px;
+    width: 81px;
+    height: 81px;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .move-icon{
+    height: 40px;
   }
 
-  /* Container for control buttons */
+  .move-btn img{
+    width: 75px;
+    height: 75px;
+  }
+  
+
+  
+  .result {
+    font-size: 16px;
+    margin-top: 50px;
+  }
+  
+  .reset-score-btn,
+  .auto-play-btn {
+    display: inline;
+    font-size: 15px;
+    width: 40%;
+    height: 10%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
   .score {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
+    margin-top: 0%;
   }
   
-  .fullscreen-active .playground {
-    transform: scale(1.1);
-    margin-top: 12vh;
-
-  }
-  .fullscreen-active .js-score{
-    top: 85%;
-  }
-  .fullscreen-active .dropDown button{
-    padding: 6px 12px;
-  }
-
-  .fullscreen-active .move-btn.mode1-btn,
-  .fullscreen-active .move-btn.mode2-btn,
-  .fullscreen-active .move-btn.mode3-btn,
-  .fullscreen-active .move-btn.mode4-btn {
-    width: 80px;
-    height: 80px;
-    padding: 10px;
-  }
-  .fullscreen-active .move-icon {
-    height: 45px;
-  }
-  .fullscreen-active .score {
-    bottom: 10vh;
-  }
-  .fullscreen-active .reset-score-btn,
-  .fullscreen-active .auto-play-btn {
-    font-size: 12px;
-    padding: 8px 12px;
-    min-width: 90px;
-  }
-  .fullscreen-active .volume-control {
+  .volume-control {
     z-index: 1000;
     top: 50%;
   }
-  .fullscreen-active .volume-bar{
+  .volume-bar{
     width: 90px;
   }
   .volume-control {
-   display: none; /* Hidden by default */
+   display: none; 
     position: absolute;
     width: 90px;
     top: 100%;
@@ -527,25 +462,126 @@ main{
   }
 }
 
+/* WARNING */
+/* WARNING */
+/* 
 @media screen and (max-width:768px){
-  .title{
-    display: none;
+    #btn2{
+    background-color: #006400;
+    display: none !important;
+  } 
+  body {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
   }
   main{
     width: 100%;
     height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
+  
+  .dropDown button{
+    height: 55px;
+    width: 55px;
+  }
+  
+  .playground{
+    align-items: center;
+    transform: scale(1.3  );
+    margin-top: 20px;
+    
+  }
+  
+  .playground.move-btn.mode1-btn,
+  .playground.move-btn.mode2-btn,
+  .playground.move-btn.mode3-btn,
+  .playground.move-btn.mode4-btn {
+    width: 100px;
+    height: 100px;
+  }
+
+  .move-icon{
+    height: 50px;
+  }
+  
+  .result {
+    font-size: 24px;
+    margin-top: 60px;
+  }
+  
+  .dropDown {
+    margin-left: 85%;
+  }
+
+  
+  .reset-score-btn {
+    display: inline-block;
+    margin-top: 100px;
+    font-size: 15px;
+    padding: 8px 12px;
+    min-width: 80px;
+  }
+  
+  .score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .volume-control {
+    z-index: 1000;
+    top: 50%;
+  }
+  .volume-bar{
+    width: 90px;
+  }
+  .volume-control {
+   display: none; 
+    position: absolute;
+    width: 90px;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .volume-bar {
+    width: 80px;
+    height: 5px;
+    background: #4065a8;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .volume-bar::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .volume-bar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+  }
+  .title{
+    display: none;
+  }
+ 
 
   .move-btn.mode1-btn img{
     width: 60px;
     height: 60px;
   }
-}
+} */
 
 
-
-
-  /* Adjust control buttons in fullscreen mobile view */
   .fullscreen-active .score {
     display: flex;
     flex-direction: row;
@@ -561,9 +597,6 @@ main{
     padding: 8px 12px;
     min-width: 90px;
   }
-  
-  
-
 
   
 @keyframes desertGradient {
@@ -721,6 +754,38 @@ main{
 }
 
 .move-btn.mode1-btn {
-  border: 3px solid white;
-  border-radius: 60px;
+  border:none;
+}
+
+
+/*Iphone X*/
+
+.decisionBox{
+  background-color: whitesmoke;
+  padding: 10px;
+  display: none;
+}
+
+#btn5{
+  cursor: pointer;
+  height: 36px;
+  text-align: center;
+  justify-content: center;
+  /* width: 35px;
+  height: 40px; */
+}
+
+.decisionBox input{
+  color: white;
+
+}
+.right{
+  background-color: #006400;
+  width: 50%;
+
+}
+.left{
+  margin-right: 20px;
+  background-color: rgb(51, 75, 4);
+  width: 50%;
 }

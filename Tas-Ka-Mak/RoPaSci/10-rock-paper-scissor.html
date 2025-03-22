@@ -19,6 +19,7 @@
     <div class="dropDown">
      
       <button id="btn1" onclick="dropD()" title="settings"><i class="bi bi-gear"></i></button>
+      <button id="btn5" onclick="decide()" class="bidown bg-warning" title="decide"><i class="bi bi-question"></i></button>
       <button id="btn2" onclick="fullS('Main')" class="bidown" title="full screen"><i class="bi bi-arrows-angle-expand"></i></button>
       <div class="imgDown">
         <button id="btn3" onclick="dropI()" class="bidown" title="image">
@@ -46,7 +47,7 @@
     </div>
     <!-- <h3 id="temprora" class="fs-6">Pick one and Start!</h3> -->
       
-    <div class="playground mt-5">
+    <div class="playground">
       <button onclick="playGame('rock');" class="move-btn" >
 
         <img src="./Images/rock-emoji.png" alt="rock" class="move-icon">
@@ -66,18 +67,17 @@
       </div> 
     </div>
     <!--Decision-->
-    <!-- <label style="display: block;right: 20px; position: absolute; top: 50%; " for="right">Right</label>
-    <input style="display: block;right: 10px; position: absolute;" title="right" type="text" name="right" id="right">
-    <label for="left">Left</label>
-    <input style="display: block; left: 0%;" title="left" type="text" name="left" id="left"> -->
-
+    <div class="decisionBox">
+      <input class="left" title="right" type="text" name="right" id="right">
+      <input class="right" title="left" type="text" name="left" id="left">
+    </div>  
     <!-- Score -->
     <p class="js-score score"></p>
     <button onclick="reset()" class="reset-score-btn">
       reset
     </button>
     <button class="auto-play-btn" onclick="autoPlay()">Auto play</button>
-    <h5 id="tempro" class="mt-3">btw you can use 'q,w,e' after you picked one</h5>  
+   
     
   </main>
   

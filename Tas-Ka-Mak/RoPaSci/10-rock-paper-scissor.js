@@ -301,14 +301,6 @@ function Sound(){
 }
 
 
-setTimeout(()=>{
-  document.getElementById('tempro').style.display='none';
-},15000)
-document.querySelectorAll('button').forEach(button => {
-  button.addEventListener('click', () => {
-    document.querySelector('#temprora').style.display = 'none';
-  });
-});
 
 
 
@@ -397,4 +389,70 @@ function switchMode(mode) {
   
 }
 
+
+// Decision
+
+// function decide(){
+
+//   const decidEl=document.querySelector('.decisionBox');
+//   const rightEl=document.getElementById('right');
+//   const leftEl=document.getElementById('left');
+//   let result='';
+
+//   const rInput=rightEl.value;
+//   const lInput=leftEl.value;
+//   decidEl.style.display=(decidEl.style.display==='none')?'flex':'none';
+//   decideGame();
+//   function decideGame(playerChoice){
+//     computerChoice=pickComputerChoice();
+//     if (playerChoice === 'scissor'){
+//       if(computerChoice==='rock'){
+//         result={lInput};
+//       } 
+//       else if(computerChoice==='paper'){
+//         result={rInput};
+//       }
+//       else{
+//         result='tie';
+//       }
+      
+//     }else if(playerChoice==='paper'){
+//       computerChoice=pickComputerChoice();
+      
+//       if(computerChoice==='rock'){
+//         result={rInput};
+//       }
+//       else if (computerChoice==='paper'){
+//         result='tie';
+//       }
+//       else{
+//         result={lInput};
+//       }
+      
+//     }
+//     else{
+//       computerChoice=pickComputerChoice();
+//           if(computerChoice==='rock'){
+//             result='Tie';
+//           }else if(computerChoice==='paper'){
+//             result={lInput};
+//           }else{
+//             result={rInput};
+//           }
+//     }
+//   }
+  
+//   document.querySelector('.js-result').innerHTML = `Result: ${result}`;
+  
+  
+  
+//   document.querySelectorAll('.move-btn').forEach((button, index) => {
+//     const moves = ['rock', 'paper', 'scissor'];
+//     button.addEventListener('click', () => {
+//       decideGame(moves[index]);
+//     });
+//   });
+  
+
+// }
 
