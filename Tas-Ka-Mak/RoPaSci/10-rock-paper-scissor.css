@@ -48,14 +48,12 @@ main{
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  /* text-align: center; */
   padding: 20px;
-  width: 60%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   background-color: rgb(25,25,25);
   color:white;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 #sOff{
   display: none;
@@ -137,6 +135,7 @@ main{
   background-color: white;
   border: none;
   font-size: 14px;
+  margin-left: 10px;
   padding: 6px 12px;
   cursor: pointer;
   margin-top: 12px;
@@ -154,7 +153,6 @@ main{
   padding: 0;
   overflow: hidden;
 }
-
 
 
 .fullscreen-active.bg-custom-alt {
@@ -428,13 +426,12 @@ main{
 /* WARNING */
 @media screen and (min-width: 480px) and (max-width: 768px) {
   #btn2 {
-    background-color: #228B22; /* Slightly lighter green */
     display: none !important;
   }
 
   .title {
-    display: block; /* Show the title for this range */
-    font-size: 24px; /* Adjust font size */
+    display: block; 
+    font-size: 24px; 
     text-align: center;
   }
 
@@ -447,7 +444,7 @@ main{
 
   main {
     width: 100%;
-    height: auto;
+    height: 100%;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -558,7 +555,34 @@ main{
     padding: 8px 12px;
     min-width: 90px;
   }
-
+  .fullscreen-active .decisionBox {
+    background-color: whitesmoke;
+    display: none;
+    width: 450px;
+    height: auto;
+    margin: 0px 0px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fullscreen-active .decisionBox input {
+    color: white;
+    margin: 10px;
+    width: 180px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+  }
+  
+  .fullscreen-active .right {
+    background-color: #16dd16;
+    width: 180px;
+  }
+  
+  .fullscreen-active .left {
+    background-color: rgb(136, 185, 39);
+    width: 180px;
+  }
   
 @keyframes desertGradient {
   0% {
@@ -733,6 +757,11 @@ main{
   display: none;
 }
 
+.decisionBox span{
+  color: black;
+  margin-top: auto;
+  font-weight: bold;
+}
 #btn5{
   cursor: pointer;
   height: 36px;
@@ -755,4 +784,33 @@ main{
   margin-right: 20px;
   background-color: rgb(51, 75, 4);
   width: 50%;
+}
+
+@media screen and (min-width: 481px) {
+  .decisionBox {
+    background-color: whitesmoke;
+    padding: 10px;
+    display: none;
+    width: 360px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .decisionBox input {
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    font-size: 16px;
+  }
+  
+  .right {
+    background-color: #006400;
+    width: 150px;
+  }
+  
+  .left {
+    margin-right: 20px;
+    background-color: rgb(51, 75, 4);
+    width: 150px;
+  }
 }

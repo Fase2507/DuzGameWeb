@@ -65,6 +65,13 @@ function autoPlay(){
   }
 }
 
+
+// Decision
+function decide() {
+  const decidEl = document.querySelector('.decisionBox');
+  decidEl.style.display = (decidEl.style.display === 'none') ? 'flex' : 'none';
+}
+
 function playGame(playerChoice){
   
   let result='';
@@ -106,7 +113,7 @@ function playGame(playerChoice){
       
   }
 
-  
+  //SCORE
   if(result==='You win'){
     score.wins+=1;
     point+=1;
@@ -118,20 +125,48 @@ function playGame(playerChoice){
   else{
     score.ties+=1;
   }
-  localStorage.setItem('score',JSON.stringify(score));
 
+  localStorage.setItem('score',JSON.stringify(score));
   updateScore();
-  document.querySelector('.js-result').
-  innerHTML=result;
+
+  const decidEl = document.querySelector('.decisionBox');
+  if (decidEl.style.display === 'flex') {
+    const leftEl = document.getElementById('left');
+    const rightEl = document.getElementById('right');
+    let decision = '';
+    
+    if (result === 'You win') {
+      decision = leftEl.value;
+    } else if (result === 'You loose') {
+      decision = rightEl.value;
+    } else {
+      decision = 'Tie-Try again!';
+    }
+
+    // Display the decision result
+    document.querySelector('.js-result').innerHTML = `${result}<br>Decision: ${decision}`;
+  } else {
+    // Normal game result display
+    document.querySelector('.js-result').innerHTML = result;
+  }
+  
   document.querySelector('.js-move').
   innerHTML=
-  `You
-  <img src="${gameModes[`mode${currentMode}`].images[playerChoice]}" alt="rock" class="move-icon">
-  <img src="${gameModes[`mode${currentMode}`].images[computerChoice]}" alt="paper" class="move-icon">
-  Computer`;
-  }
+  `Computer
+  <img src="${gameModes[`mode${currentMode}`].images[computerChoice]}" alt="rock" class="move-icon">
+  <img src="${gameModes[`mode${currentMode}`].images[playerChoice]}" alt="paper" class="move-icon">
+  You`;
+
+  
+
+}
+
+
 document.addEventListener('keydown', (event) => {
   // console.log(event.key)
+  if (event.target.tagName === 'INPUT') {
+    return;
+  }
   let button;
   if (event.key === 'q') {
     button = document.querySelector('.move-btn:nth-child(1)');
@@ -246,12 +281,16 @@ function fullS(divId){
 // Sound effects
 let isSoundOn=true;
 const sound = document.getElementById("gameSound"); 
-  let SoundOnico=document.getElementById('sOn');
-  let SoundOffico=document.getElementById('sOff');
+let SoundOnico=document.getElementById('sOn');
+let SoundOffico=document.getElementById('sOff');
+
+document.addEventListener('DOMContentLoaded',()=>{
+  initializeAudio();
+})
 function initializeAudio() {
   
   try {
-    const defaultVolume=30;
+    const defaultVolume=20;
     sound.volume=defaultVolume/100;
     
     const volumeBar=document.querySelector('.volume-bar');
@@ -325,6 +364,7 @@ function switchMode(mode) {
     mainElement.className = gameModes.mode2.background;
     moveButtons.forEach(btn => {
       const moveType = btn.src.split('/').pop().split('-')[0];
+      // console.log(moveType);
       btn.src = gameModes.mode2.images[moveType];
       btn.className = 'move-icon mode2-image';
       btn.closest('.move-btn').classList.remove('mode1-btn');
@@ -390,69 +430,6 @@ function switchMode(mode) {
 }
 
 
-// Decision
 
-// function decide(){
 
-//   const decidEl=document.querySelector('.decisionBox');
-//   const rightEl=document.getElementById('right');
-//   const leftEl=document.getElementById('left');
-//   let result='';
-
-//   const rInput=rightEl.value;
-//   const lInput=leftEl.value;
-//   decidEl.style.display=(decidEl.style.display==='none')?'flex':'none';
-//   decideGame();
-//   function decideGame(playerChoice){
-//     computerChoice=pickComputerChoice();
-//     if (playerChoice === 'scissor'){
-//       if(computerChoice==='rock'){
-//         result={lInput};
-//       } 
-//       else if(computerChoice==='paper'){
-//         result={rInput};
-//       }
-//       else{
-//         result='tie';
-//       }
-      
-//     }else if(playerChoice==='paper'){
-//       computerChoice=pickComputerChoice();
-      
-//       if(computerChoice==='rock'){
-//         result={rInput};
-//       }
-//       else if (computerChoice==='paper'){
-//         result='tie';
-//       }
-//       else{
-//         result={lInput};
-//       }
-      
-//     }
-//     else{
-//       computerChoice=pickComputerChoice();
-//           if(computerChoice==='rock'){
-//             result='Tie';
-//           }else if(computerChoice==='paper'){
-//             result={lInput};
-//           }else{
-//             result={rInput};
-//           }
-//     }
-//   }
-  
-//   document.querySelector('.js-result').innerHTML = `Result: ${result}`;
-  
-  
-  
-//   document.querySelectorAll('.move-btn').forEach((button, index) => {
-//     const moves = ['rock', 'paper', 'scissor'];
-//     button.addEventListener('click', () => {
-//       decideGame(moves[index]);
-//     });
-//   });
-  
-
-// }
 
