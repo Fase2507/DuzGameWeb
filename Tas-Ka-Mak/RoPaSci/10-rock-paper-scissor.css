@@ -43,29 +43,6 @@ form{
 
 }
 
-
-#Input{
-  padding-left: 10px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  padding: 8px 15px;
-  width: 400px;
-  outline: none;
-}
-
-#Input::placeholder {
-  color: #aaa;
-}
-
-#Input:focus {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: #fff;
-}
-
-
-/* //////////// */
 main{
   box-sizing: border-box;
   position: relative;
@@ -80,7 +57,9 @@ main{
   font-family: Arial, Helvetica, sans-serif;
   
 }
-
+#sOff{
+  display: none;
+}
     
 .title{
   font-size: 30px;
@@ -126,7 +105,7 @@ main{
   display: block;
 }
 .move-icon{
-  height: 50px;
+  height: 55px;
   
 }
 .move-btn{
@@ -139,6 +118,8 @@ main{
   height: 120px;
   cursor:pointer;
 }
+
+
 .result{
   font-size: 20px;
   font-weight: bold;
@@ -161,23 +142,6 @@ main{
   margin-top: 12px;
 }
     
-
-/* FUll screen active */
-/* .fullscreen-active{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 20px;
-  font-size: 1.5rem;
-} */
-
-/* .fullscreen-active .playground{
-  transform: scale(1.4);
-  margin-top: auto;
-  
-} */
 
 .fullscreen-active {
   display: flex;
@@ -408,12 +372,13 @@ main{
   .reset-score-btn,
   .auto-play-btn {
     display: inline;
-    font-size: 15px;
-    width: 40%;
-    height: 10%;
+    font-size: 16px;
+    width: 120px;
     margin-left: auto;
     margin-right: auto;
   }
+
+  
   
   .score {
     display: flex;
@@ -423,18 +388,15 @@ main{
     margin-top: 0%;
   }
   
-  .volume-control {
-    z-index: 1000;
-    top: 50%;
-  }
+  
   .volume-bar{
     width: 90px;
   }
   .volume-control {
    display: none; 
     position: absolute;
-    width: 90px;
-    top: 100%;
+    width: 80px;
+    top: 35%;
     left: 0;
     z-index: 1000;
   }
@@ -464,89 +426,97 @@ main{
 
 /* WARNING */
 /* WARNING */
-/* 
-@media screen and (max-width:768px){
-    #btn2{
-    background-color: #006400;
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  #btn2 {
+    background-color: #228B22; /* Slightly lighter green */
     display: none !important;
-  } 
+  }
+
+  .title {
+    display: block; /* Show the title for this range */
+    font-size: 24px; /* Adjust font size */
+    text-align: center;
+  }
+
   body {
     width: 100vw;
     height: 100vh;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
   }
-  main{
+
+  main {
     width: 100%;
-    height: 100%;
-    align-items: center;
+    height: auto;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    margin: auto;
   }
-  
-  .dropDown button{
-    height: 55px;
-    width: 55px;
+
+  .dropDown {
+    margin-left: 90%;
   }
-  
-  .playground{
+
+  .dropDown button {
+    height: 40px;
+    width: 40px;
+  }
+
+  .playground {
     align-items: center;
-    transform: scale(1.3  );
-    margin-top: 20px;
-    
+    transform: scale(1);
+    margin-top: 2rem;
   }
-  
-  .playground.move-btn.mode1-btn,
-  .playground.move-btn.mode2-btn,
-  .playground.move-btn.mode3-btn,
-  .playground.move-btn.mode4-btn {
+
+  .move-btn {
+    background-color: transparent;
+    border: none;
+    margin-right: 15px;
     width: 100px;
     height: 100px;
+    cursor: pointer;
+    padding: 5px;
   }
 
-  .move-icon{
+  .move-icon {
     height: 50px;
   }
-  
-  .result {
-    font-size: 24px;
-    margin-top: 60px;
-  }
-  
-  .dropDown {
-    margin-left: 85%;
+
+  .move-btn img {
+    width: 90px;
+    height: 90px;
   }
 
-  
-  .reset-score-btn {
-    display: inline-block;
-    margin-top: 100px;
-    font-size: 15px;
-    padding: 8px 12px;
-    min-width: 80px;
+  .result {
+    font-size: 18px;
+    margin-top: 30px;
+    text-align: center;
   }
-  
+
+  .reset-score-btn,
+  .auto-play-btn {
+    display: inline-block;
+    font-size: 14px;
+    width: 100px;
+    margin: 10px auto;
+    padding: 8px;
+  }
+
   .score {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-top: 20px;
   }
-  
+
   .volume-control {
     z-index: 1000;
-    top: 50%;
-  }
-  .volume-bar{
-    width: 90px;
-  }
-  .volume-control {
-   display: none; 
-    position: absolute;
-    width: 90px;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
+    top: 80%;
+    left: 10%;
+    display: block;
   }
 
   .volume-bar {
@@ -558,28 +528,19 @@ main{
   }
 
   .volume-bar::-webkit-slider-thumb {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: white;
     border-radius: 50%;
   }
 
   .volume-bar::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background: white;
     border-radius: 50%;
   }
-  .title{
-    display: none;
-  }
- 
-
-  .move-btn.mode1-btn img{
-    width: 60px;
-    height: 60px;
-  }
-} */
+}
 
 
   .fullscreen-active .score {
@@ -717,12 +678,18 @@ main{
   transition: all 0.1s ease-in-out;
 }
 
+.mode1-image{
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
 .mode2-image {
   width: 80px;
   height: 80px;
   border-radius: 0;
   transition: all 0.3s ease;
-  
 }
 .mode3-image{
   width: 80px;

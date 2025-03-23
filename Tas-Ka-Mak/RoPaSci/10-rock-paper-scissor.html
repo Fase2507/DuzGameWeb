@@ -36,16 +36,16 @@
       </div>
         <!-- Musics belong to FMA -->
       <audio id="gameSound" src="./Music/Ketsa - If You Waited.mp3" preload="auto" loop></audio>
-      <button id="btn4" onclick="Sound()" class="bidown" title="sound on/off">
+      <button type="button" id="btn4" onclick="Sound()" class="bidown" title="sound on/off">
         <i id="sOn" class="bi bi-volume-down-fill"></i>
-        <i id="sOff" class="bi bi-volume-mute-fill" style="display: none;"></i>
+        <i id="sOff" class="bi bi-volume-mute-fill"></i>
         <div class="volume-control">
           <input title="bar" type="range" class="volume-bar" min="0" max="100" value="100">
         </div>
       </button>
       
     </div>
-    <!-- <h3 id="temprora" class="fs-6">Pick one and Start!</h3> -->
+   
       
     <div class="playground">
       <button onclick="playGame('rock');" class="move-btn" >
@@ -80,7 +80,6 @@
    
     
   </main>
-  
   
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
